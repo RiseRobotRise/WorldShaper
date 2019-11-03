@@ -1,0 +1,50 @@
+[gd_scene format=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 20.0
+
+[node name="Label" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+text = "File"
+flat = false
+switch_on_hover = true
+
+[node name="Label2" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+text = "Edit"
+flat = false
+switch_on_hover = true
+
+[node name="Label3" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 50, 0 )
+text = "About"
+flat = false
+switch_on_hover = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1010.0
+margin_bottom = 24.0
