@@ -1,50 +1,355 @@
-[gd_scene format=2]
+[gd_scene load_steps=18 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://UI.gd" type="Script" id=1]
+[ext_resource path="res://icons/icon_g_i_probe.svg" type="Texture" id=2]
+[ext_resource path="res://icons/icon_futari_modifier.svg" type="Texture" id=3]
+[ext_resource path="res://icons/icon_futari_attractor.svg" type="Texture" id=4]
+[ext_resource path="res://icons/icon_futari_floor.svg" type="Texture" id=5]
+[ext_resource path="res://icons/icon_futari_vortex.svg" type="Texture" id=6]
+[ext_resource path="res://icons/icon_futari_wind.svg" type="Texture" id=7]
+[ext_resource path="res://icons/icon_futari_particles.svg" type="Texture" id=8]
+[ext_resource path="res://VBoxContainer.gd" type="Script" id=9]
+[ext_resource path="res://icons/icon_c_s_g_combiner.svg" type="Texture" id=10]
+[ext_resource path="res://icons/icon_grid_map.svg" type="Texture" id=11]
+[ext_resource path="res://icons/icon_particles.svg" type="Texture" id=12]
+[ext_resource path="res://icons/icon_room.svg" type="Texture" id=13]
+[ext_resource path="res://icons/icon_gui_close.svg" type="Texture" id=14]
+[ext_resource path="res://Viewports.gd" type="Script" id=15]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="BackGround" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="Main" type="VBoxContainer" parent="BackGround"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Toolbar" type="HBoxContainer" parent="BackGround/Main"]
 margin_right = 1010.0
 margin_bottom = 20.0
 
-[node name="Label" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="File" type="MenuButton" parent="BackGround/Main/Toolbar"]
 margin_right = 50.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 text = "File"
-flat = false
+items = [ "Open", null, 0, false, false, -1, 0, null, "", false, "Save", null, 0, false, false, -1, 0, null, "", false, "Save as...", null, 0, false, false, -1, 0, null, "", false, "Import", null, 0, false, false, -1, 0, null, "", false, "Export", null, 0, false, false, -1, 0, null, "", false ]
 switch_on_hover = true
 
-[node name="Label2" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Edit" type="MenuButton" parent="BackGround/Main/Toolbar"]
 margin_left = 54.0
 margin_right = 104.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 text = "Edit"
-flat = false
 switch_on_hover = true
 
-[node name="Label3" type="MenuButton" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="About" type="MenuButton" parent="BackGround/Main/Toolbar"]
 margin_left = 108.0
 margin_right = 158.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 50, 0 )
 text = "About"
-flat = false
 switch_on_hover = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Toolbar2" type="TabContainer" parent="BackGround/Main"]
 margin_top = 24.0
 margin_right = 1010.0
-margin_bottom = 24.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 100 )
+tab_align = 0
+
+[node name="Effects" type="Tabs" parent="BackGround/Main/Toolbar2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="GridContainer" type="GridContainer" parent="BackGround/Main/Toolbar2/Effects"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 150, 330 )
+columns = 3
+
+[node name="Button" type="Button" parent="BackGround/Main/Toolbar2/Effects/GridContainer"]
+margin_right = 91.0
+margin_bottom = 22.0
+text = "GI Probe"
+icon = ExtResource( 2 )
+
+[node name="Button2" type="Button" parent="BackGround/Main/Toolbar2/Effects/GridContainer"]
+margin_left = 95.0
+margin_right = 236.0
+margin_bottom = 22.0
+text = " - "
+
+[node name="Button3" type="Button" parent="BackGround/Main/Toolbar2/Effects/GridContainer"]
+margin_left = 240.0
+margin_right = 260.0
+margin_bottom = 22.0
+text = "  "
+
+[node name="Button4" type="MenuButton" parent="BackGround/Main/Toolbar2/Effects/GridContainer"]
+margin_top = 26.0
+margin_right = 91.0
+margin_bottom = 48.0
+text = "Modifiers"
+icon = ExtResource( 3 )
+items = [ "Attractor", ExtResource( 4 ), 0, false, false, 0, 0, null, "", false, "Floor", ExtResource( 5 ), 0, false, false, 1, 0, null, "", false, "Vortex", ExtResource( 6 ), 0, false, false, 2, 0, null, "", false, "Wind", ExtResource( 7 ), 0, false, false, 3, 0, null, "", false ]
+
+[node name="Button5" type="Button" parent="BackGround/Main/Toolbar2/Effects/GridContainer"]
+margin_left = 95.0
+margin_top = 26.0
+margin_right = 236.0
+margin_bottom = 48.0
+text = "Physical Particles"
+icon = ExtResource( 8 )
+
+[node name="Button6" type="Button" parent="BackGround/Main/Toolbar2/Effects/GridContainer"]
+margin_left = 240.0
+margin_top = 26.0
+margin_right = 260.0
+margin_bottom = 48.0
+
+[node name="BSP" type="Tabs" parent="BackGround/Main/Toolbar2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="Tiles" type="Tabs" parent="BackGround/Main/Toolbar2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="BackGround/Main"]
+margin_top = 128.0
+margin_right = 1010.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="BackGround/Main/VSplitContainer"]
+margin_right = 1010.0
+margin_bottom = 418.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Layers" type="PanelContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer"]
+margin_right = 214.0
+margin_bottom = 418.0
+rect_min_size = Vector2( 150, 0 )
+size_flags_vertical = 3
+
+[node name="Separator" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 207.0
+margin_bottom = 411.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 9 )
+
+[node name="Title" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator"]
+margin_right = 200.0
+margin_bottom = 14.0
+text = "Layers"
+align = 1
+
+[node name="Add_layer" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator"]
+margin_top = 18.0
+margin_right = 200.0
+margin_bottom = 40.0
+alignment = 1
+
+[node name="BSP" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer"]
+margin_left = 22.0
+margin_right = 50.0
+margin_bottom = 22.0
+hint_tooltip = "New BSP layer"
+icon = ExtResource( 10 )
+
+[node name="Grid" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer"]
+margin_left = 54.0
+margin_right = 82.0
+margin_bottom = 22.0
+hint_tooltip = "New GirdMap layer"
+icon = ExtResource( 11 )
+
+[node name="Effects" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer"]
+margin_left = 86.0
+margin_right = 114.0
+margin_bottom = 22.0
+hint_tooltip = "New Effects layer"
+icon = ExtResource( 12 )
+
+[node name="Props" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer"]
+margin_left = 118.0
+margin_right = 146.0
+margin_bottom = 22.0
+hint_tooltip = "New Props layer"
+icon = ExtResource( 13 )
+
+[node name="Delete" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer"]
+margin_left = 150.0
+margin_right = 178.0
+margin_bottom = 22.0
+hint_tooltip = "Delete selected"
+icon = ExtResource( 14 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator"]
+margin_top = 44.0
+margin_right = 200.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Layers" type="Tree" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/ScrollContainer"]
+margin_right = 200.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+drop_mode_flags = 2
+select_mode = 2
+
+[node name="Viewports" type="PanelContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer"]
+margin_left = 226.0
+margin_right = 1010.0
+margin_bottom = 418.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 15 )
+
+[node name="HorizontalDiv" type="VSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 777.0
+margin_bottom = 411.0
+
+[node name="VerticalDivTop" type="HSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv"]
+margin_right = 770.0
+margin_bottom = 100.0
+
+[node name="TopLeft" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop"]
+editor/display_folded = true
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Top" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopLeft"]
+size = Vector2( 10, 10 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopLeft/Top"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0 )
+projection = 1
+current = true
+
+[node name="TopRigth" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop"]
+editor/display_folded = true
+margin_left = 112.0
+margin_right = 770.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Front" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopRigth"]
+size = Vector2( 10, 10 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopRigth/Front"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+projection = 1
+current = true
+
+[node name="VerticalDivBottom" type="HSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv"]
+margin_top = 112.0
+margin_right = 770.0
+margin_bottom = 404.0
+
+[node name="BottomLeft" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom"]
+editor/display_folded = true
+margin_right = 100.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Left" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomLeft"]
+size = Vector2( 10, 10 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomLeft/Left"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.87937, 0, 0 )
+projection = 1
+current = true
+
+[node name="BottomRight" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom"]
+editor/display_folded = true
+margin_left = 112.0
+margin_right = 770.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 100, 100 )
+
+[node name="Perspective" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomRight"]
+size = Vector2( 10, 10 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomRight/Perspective"]
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomRight/Perspective"]
+environment = SubResource( 2 )
+
+[node name="MessagesContainer" type="PanelContainer" parent="BackGround/Main/VSplitContainer"]
+margin_top = 430.0
+margin_right = 1010.0
+margin_bottom = 458.0
+rect_min_size = Vector2( 0, 25 )
+
+[node name="Messages" type="Label" parent="BackGround/Main/VSplitContainer/MessagesContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1003.0
+margin_bottom = 21.0
+[connection signal="resized" from="BackGround" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_on_BackGround_resized"]
+[connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport"]
+[connection signal="error_message" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator" to="." method="_on_Separator_error_message"]
+[connection signal="pressed" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer/BSP" to="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator" method="_on_BSP_pressed"]
+[connection signal="pressed" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer/Grid" to="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator" method="_on_Grid_pressed"]
+[connection signal="pressed" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer/Effects" to="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator" method="_on_Effects_pressed"]
+[connection signal="pressed" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer/Props" to="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator" method="_on_Props_pressed"]
+[connection signal="pressed" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator/Add_layer/Delete" to="BackGround/Main/VSplitContainer/HSplitContainer/Layers/Separator" method="_on_Delete_pressed"]
+[connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport"]
+[connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport_upper"]
+[connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport_down"]

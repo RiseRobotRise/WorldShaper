@@ -16,7 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="World Shaper"
-config/icon="res://icon.png"
+run/main_scene="res://UI.tscn"
+config/icon="res://icons/icon_world.png"
+
+[display]
+
+window/energy_saving/keep_screen_on=false
 
 [rendering]
 
