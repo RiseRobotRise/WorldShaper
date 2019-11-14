@@ -21,6 +21,7 @@ func _ready():
 	_resize_viewport(0)
 
 func _resize_viewport(offset = 0):
+	yield(get_tree(),"idle_frame")
 	Top.size.x = Top.get_parent().rect_size.x
 	Top.size.y = Top.get_parent().rect_size.y
 	
@@ -32,20 +33,27 @@ func _resize_viewport(offset = 0):
 
 	Perspective.size.x = Perspective.get_parent().rect_size.x
 	Perspective.size.y = Perspective.get_parent().rect_size.y
+	yield(get_tree(),"idle_frame")
 
 
 
 
 func _resize_viewport_upper(offset):
+	yield(get_tree(),"idle_frame")
 	_resize_viewport(offset)
 	$HorizontalDiv/VerticalDivBottom.split_offset = offset
+	
 
 
 
 func _resize_viewport_down(offset):
+	yield(get_tree(),"idle_frame")
 	_resize_viewport(offset)
 	$HorizontalDiv/VerticalDivTop.split_offset = offset
+	
 
 
 func _on_BackGround_resized():
+	yield(get_tree(),"idle_frame")
+	yield(get_tree(),"idle_frame")
 	_resize_viewport()

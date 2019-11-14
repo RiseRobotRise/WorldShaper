@@ -14,4 +14,4 @@ func _ready():
 
 
 func _on_Separator_error_message(text):
-	$BackGround/Main/VSplitContainer/MessagesContainer/Messages.text = "Warining: " + text
+	$BackGround/Main/VSplitContainer/MessagesContainer/Messages.text = "Warning: " + text
