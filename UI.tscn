@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
 [ext_resource path="res://icons/icon_c_s_g_box.svg" type="Texture" id=2]
@@ -30,6 +30,18 @@
 [ext_resource path="res://icons/icon_duplicate.svg" type="Texture" id=28]
 [ext_resource path="res://icons/icon_gui_close.svg" type="Texture" id=29]
 [ext_resource path="res://Viewports.gd" type="Script" id=30]
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopLeft/Top")
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopRigth/Front")
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomLeft/Left")
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomRight/Perspective")
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -93,7 +105,6 @@ rect_min_size = Vector2( 0, 100 )
 tab_align = 0
 
 [node name="Add" type="Tabs" parent="BackGround/Main/Toolbar2"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -351,7 +362,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Layers" type="PanelContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer"]
-margin_right = 244.0
+margin_right = 254.0
 margin_bottom = 418.0
 rect_min_size = Vector2( 150, 0 )
 size_flags_vertical = 3
@@ -359,63 +370,63 @@ size_flags_vertical = 3
 [node name="VSplitContainer" type="VSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 237.0
+margin_right = 247.0
 margin_bottom = 411.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer"]
-margin_right = 230.0
+margin_right = 240.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 230, 75 )
+rect_min_size = Vector2( 240, 75 )
 
 [node name="Properties" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer"]
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 410.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties"]
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 14.0
 text = "Properties"
 align = 1
 
 [node name="HSeparator" type="HSeparator" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties"]
 margin_top = 18.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 22.0
 
 [node name="BSP" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties"]
 margin_top = 26.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 124.0
 size_flags_horizontal = 3
 
 [node name="How" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP"]
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 24.0
 alignment = 1
 
 [node name="Cut" type="CheckBox" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/How"]
-margin_left = 16.0
-margin_right = 65.0
+margin_left = 20.0
+margin_right = 69.0
 margin_bottom = 24.0
 text = "Cut"
 
 [node name="Solid" type="CheckBox" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/How"]
-margin_left = 69.0
-margin_right = 128.0
+margin_left = 73.0
+margin_right = 132.0
 margin_bottom = 24.0
 text = "Solid"
 
 [node name="Hollow" type="CheckBox" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/How"]
-margin_left = 132.0
-margin_right = 204.0
+margin_left = 136.0
+margin_right = 208.0
 margin_bottom = 24.0
 hint_tooltip = "Hollow, as a real box would be."
 text = "Hollow"
 
 [node name="Thickness" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP"]
 margin_top = 28.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 52.0
 
 [node name="Label" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Thickness"]
@@ -426,122 +437,123 @@ text = "Wall size"
 
 [node name="Value" type="HSlider" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Thickness"]
 margin_left = 62.0
-margin_right = 143.0
+margin_right = 150.0
 margin_bottom = 16.0
 hint_tooltip = "Wall width, for hollow only"
 size_flags_horizontal = 3
+ticks_on_borders = true
 
 [node name="Value2" type="SpinBox" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Thickness"]
-margin_left = 147.0
-margin_right = 221.0
+margin_left = 154.0
+margin_right = 228.0
 margin_bottom = 24.0
 
 [node name="LSiize" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP"]
 margin_top = 56.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 70.0
 text = "Size"
 align = 1
 
 [node name="Size" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP"]
-editor/display_folded = true
 margin_top = 74.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 98.0
 alignment = 1
 
 [node name="x" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Size"]
-margin_left = 2.0
+margin_left = 5.0
 margin_top = 5.0
-margin_right = 10.0
+margin_right = 13.0
 margin_bottom = 19.0
 text = "X"
 
 [node name="X" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Size"]
-margin_left = 14.0
-margin_right = 72.0
+margin_left = 17.0
+margin_right = 75.0
 margin_bottom = 24.0
 
 [node name="x2" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Size"]
-margin_left = 76.0
+margin_left = 79.0
 margin_top = 5.0
-margin_right = 83.0
+margin_right = 86.0
 margin_bottom = 19.0
 text = "Y"
 
 [node name="Y" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Size"]
-margin_left = 87.0
-margin_right = 145.0
+margin_left = 90.0
+margin_right = 148.0
 margin_bottom = 24.0
 
 [node name="x3" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Size"]
-margin_left = 149.0
+margin_left = 152.0
 margin_top = 5.0
-margin_right = 157.0
+margin_right = 160.0
 margin_bottom = 19.0
 text = "Z"
 
 [node name="Z" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/BSP/Size"]
-margin_left = 161.0
-margin_right = 219.0
+margin_left = 164.0
+margin_right = 222.0
 margin_bottom = 24.0
 
 [node name="Light" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties"]
 margin_top = 128.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 226.0
 size_flags_horizontal = 3
 
 [node name="LSiize3" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light"]
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 14.0
 text = "Color"
 align = 1
 
 [node name="Color" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light"]
 margin_top = 18.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 42.0
 alignment = 1
 
 [node name="R" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Color"]
+margin_left = 3.0
 margin_top = 5.0
-margin_right = 8.0
+margin_right = 11.0
 margin_bottom = 19.0
 text = "R"
 
 [node name="R2" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Color"]
-margin_left = 12.0
-margin_right = 70.0
+margin_left = 15.0
+margin_right = 73.0
 margin_bottom = 24.0
 
 [node name="G" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Color"]
-margin_left = 74.0
+margin_left = 77.0
 margin_top = 5.0
-margin_right = 84.0
+margin_right = 87.0
 margin_bottom = 19.0
 text = "G"
 
 [node name="G2" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Color"]
-margin_left = 88.0
-margin_right = 146.0
+margin_left = 91.0
+margin_right = 149.0
 margin_bottom = 24.0
 
 [node name="B" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Color"]
-margin_left = 150.0
+margin_left = 153.0
 margin_top = 5.0
-margin_right = 159.0
+margin_right = 162.0
 margin_bottom = 19.0
 text = "B"
 
 [node name="B2" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Color"]
-margin_left = 163.0
-margin_right = 221.0
+margin_left = 166.0
+margin_right = 224.0
 margin_bottom = 24.0
 
 [node name="Intensity" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light"]
 margin_top = 46.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 70.0
 
 [node name="Label" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Intensity"]
@@ -553,19 +565,20 @@ text = "Intensity"
 
 [node name="Value" type="HSlider" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Intensity"]
 margin_left = 62.0
-margin_right = 143.0
+margin_right = 150.0
 margin_bottom = 16.0
 hint_tooltip = "Wall width, for hollow only"
 size_flags_horizontal = 3
+ticks_on_borders = true
 
 [node name="Value2" type="SpinBox" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Intensity"]
-margin_left = 147.0
-margin_right = 221.0
+margin_left = 154.0
+margin_right = 228.0
 margin_bottom = 24.0
 
 [node name="Size" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light"]
 margin_top = 74.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 98.0
 
 [node name="Label" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Size"]
@@ -577,213 +590,210 @@ text = "Size"
 
 [node name="Value" type="HSlider" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Size"]
 margin_left = 62.0
-margin_right = 143.0
+margin_right = 150.0
 margin_bottom = 16.0
 hint_tooltip = "Wall width, for hollow only"
 size_flags_horizontal = 3
+ticks_on_borders = true
 
 [node name="Value2" type="SpinBox" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Light/Size"]
-margin_left = 147.0
-margin_right = 221.0
+margin_left = 154.0
+margin_right = 228.0
 margin_bottom = 24.0
 
 [node name="General" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties"]
 margin_top = 230.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 318.0
 size_flags_horizontal = 3
 
 [node name="LSiize" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General"]
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 14.0
 text = "Position"
 align = 1
 
 [node name="Position" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General"]
-editor/display_folded = true
 margin_top = 18.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 42.0
 alignment = 1
 
 [node name="x" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Position"]
-margin_left = 2.0
+margin_left = 5.0
 margin_top = 5.0
-margin_right = 10.0
+margin_right = 13.0
 margin_bottom = 19.0
 text = "X"
 
 [node name="X" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Position"]
-margin_left = 14.0
-margin_right = 72.0
+margin_left = 17.0
+margin_right = 75.0
 margin_bottom = 24.0
 
 [node name="x2" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Position"]
-margin_left = 76.0
+margin_left = 79.0
 margin_top = 5.0
-margin_right = 83.0
+margin_right = 86.0
 margin_bottom = 19.0
 text = "Y"
 
 [node name="Y" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Position"]
-margin_left = 87.0
-margin_right = 145.0
+margin_left = 90.0
+margin_right = 148.0
 margin_bottom = 24.0
 
 [node name="x3" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Position"]
-margin_left = 149.0
+margin_left = 152.0
 margin_top = 5.0
-margin_right = 157.0
+margin_right = 160.0
 margin_bottom = 19.0
 text = "Z"
 
 [node name="Z" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Position"]
-margin_left = 161.0
-margin_right = 219.0
+margin_left = 164.0
+margin_right = 222.0
 margin_bottom = 24.0
 
 [node name="LSiize2" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General"]
 margin_top = 46.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 60.0
 text = "Rotation"
 align = 1
 
 [node name="Rotation" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General"]
-editor/display_folded = true
 margin_top = 64.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 88.0
 alignment = 1
 
 [node name="x4" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Rotation"]
-margin_left = 2.0
+margin_left = 5.0
 margin_top = 5.0
-margin_right = 10.0
+margin_right = 13.0
 margin_bottom = 19.0
 text = "X"
 
 [node name="X" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Rotation"]
-margin_left = 14.0
-margin_right = 72.0
+margin_left = 17.0
+margin_right = 75.0
 margin_bottom = 24.0
 
 [node name="x5" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Rotation"]
-margin_left = 76.0
+margin_left = 79.0
 margin_top = 5.0
-margin_right = 83.0
+margin_right = 86.0
 margin_bottom = 19.0
 text = "Y"
 
 [node name="Y" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Rotation"]
-margin_left = 87.0
-margin_right = 145.0
+margin_left = 90.0
+margin_right = 148.0
 margin_bottom = 24.0
 
 [node name="x6" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Rotation"]
-margin_left = 149.0
+margin_left = 152.0
 margin_top = 5.0
-margin_right = 157.0
+margin_right = 160.0
 margin_bottom = 19.0
 text = "Z"
 
 [node name="Z" type="LineEdit" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/General/Rotation"]
-margin_left = 161.0
-margin_right = 219.0
+margin_left = 164.0
+margin_right = 222.0
 margin_bottom = 24.0
 
 [node name="Tiles" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties"]
-editor/display_folded = true
 margin_top = 322.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 410.0
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Tiles"]
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 20.0
 text = "Select tileset"
 
 [node name="GridContainer" type="GridContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/ScrollContainer/Properties/Tiles"]
 margin_top = 24.0
-margin_right = 221.0
+margin_right = 228.0
 margin_bottom = 88.0
 rect_min_size = Vector2( 192, 64 )
 columns = 3
 
 [node name="Separator" type="VBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer"]
 margin_top = 87.0
-margin_right = 230.0
+margin_right = 240.0
 margin_bottom = 404.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 24 )
 
 [node name="Title" type="Label" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator"]
-margin_right = 230.0
+margin_right = 240.0
 margin_bottom = 14.0
 text = "Layers"
 align = 1
 
 [node name="Add_layer" type="HBoxContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator"]
-editor/display_folded = true
 margin_top = 18.0
-margin_right = 230.0
+margin_right = 240.0
 margin_bottom = 40.0
 alignment = 1
 
 [node name="BSP" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer"]
-margin_left = 21.0
-margin_right = 49.0
+margin_left = 26.0
+margin_right = 54.0
 margin_bottom = 22.0
 hint_tooltip = "New BSP layer"
 icon = ExtResource( 25 )
 
 [node name="Grid" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer"]
-margin_left = 53.0
-margin_right = 81.0
+margin_left = 58.0
+margin_right = 86.0
 margin_bottom = 22.0
 hint_tooltip = "New GirdMap layer"
 icon = ExtResource( 26 )
 
 [node name="Effects" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer"]
-margin_left = 85.0
-margin_right = 113.0
+margin_left = 90.0
+margin_right = 118.0
 margin_bottom = 22.0
 hint_tooltip = "New Effects layer"
 icon = ExtResource( 12 )
 
 [node name="Props" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer"]
-margin_left = 117.0
-margin_right = 145.0
+margin_left = 122.0
+margin_right = 150.0
 margin_bottom = 22.0
 hint_tooltip = "New Objects layer"
 icon = ExtResource( 27 )
 
 [node name="Duplicate" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer"]
-margin_left = 149.0
-margin_right = 177.0
+margin_left = 154.0
+margin_right = 182.0
 margin_bottom = 22.0
 hint_tooltip = "Delete selected"
 icon = ExtResource( 28 )
 
 [node name="Delete" type="Button" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer"]
-margin_left = 181.0
-margin_right = 209.0
+margin_left = 186.0
+margin_right = 214.0
 margin_bottom = 22.0
 hint_tooltip = "Delete selected"
 icon = ExtResource( 29 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator"]
 margin_top = 44.0
-margin_right = 230.0
+margin_right = 240.0
 margin_bottom = 317.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Layers" type="Tree" parent="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/ScrollContainer"]
-margin_right = 230.0
+margin_right = 240.0
 margin_bottom = 273.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -793,7 +803,7 @@ drop_mode_flags = 2
 select_mode = 2
 
 [node name="Viewports" type="PanelContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer"]
-margin_left = 256.0
+margin_left = 266.0
 margin_right = 1010.0
 margin_bottom = 418.0
 size_flags_horizontal = 3
@@ -803,39 +813,42 @@ script = ExtResource( 30 )
 [node name="HorizontalDiv" type="VSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 747.0
+margin_right = 737.0
 margin_bottom = 411.0
 
 [node name="VerticalDivTop" type="HSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv"]
-margin_right = 740.0
+margin_right = 730.0
 margin_bottom = 196.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TopLeft" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop"]
-margin_right = 364.0
+[node name="TopLeft" type="TextureRect" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop"]
+margin_right = 359.0
 margin_bottom = 196.0
-rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = SubResource( 3 )
+expand = true
 
 [node name="Top" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopLeft"]
 size = Vector2( 100, 100 )
 handle_input_locally = false
+hdr = false
 render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopLeft/Top"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 4, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0 )
 projection = 1
 current = true
 
-[node name="TopRigth" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop"]
-margin_left = 376.0
-margin_right = 740.0
+[node name="TopRigth" type="TextureRect" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop"]
+margin_left = 371.0
+margin_right = 730.0
 margin_bottom = 196.0
-rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = SubResource( 4 )
+expand = true
 
 [node name="Front" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopRigth"]
 size = Vector2( 100, 100 )
@@ -849,17 +862,18 @@ current = true
 
 [node name="VerticalDivBottom" type="HSplitContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv"]
 margin_top = 208.0
-margin_right = 740.0
+margin_right = 730.0
 margin_bottom = 404.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BottomLeft" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom"]
-margin_right = 364.0
+[node name="BottomLeft" type="TextureRect" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom"]
+margin_right = 359.0
 margin_bottom = 196.0
-rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = SubResource( 5 )
+expand = true
 
 [node name="Left" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomLeft"]
 size = Vector2( 100, 100 )
@@ -867,18 +881,19 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomLeft/Left"]
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -3.87937, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.87937, 0, 0 )
 projection = 1
 current = true
 
-[node name="BottomRight" type="ViewportContainer" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom"]
-margin_left = 376.0
-margin_right = 740.0
+[node name="BottomRight" type="TextureRect" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom"]
+margin_left = 371.0
+margin_right = 730.0
 margin_bottom = 196.0
-rect_min_size = Vector2( 100, 100 )
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = SubResource( 6 )
+expand = true
 
 [node name="Perspective" type="Viewport" parent="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomRight"]
 size = Vector2( 100, 100 )
@@ -902,6 +917,10 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 1003.0
 margin_bottom = 21.0
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="CSGBox" type="CSGBox" parent="World"]
 [connection signal="resized" from="BackGround" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_on_BackGround_resized"]
 [connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport"]
 [connection signal="error_message" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator" to="." method="_on_Separator_error_message"]
@@ -913,4 +932,8 @@ margin_bottom = 21.0
 [connection signal="pressed" from="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator/Add_layer/Delete" to="BackGround/Main/VSplitContainer/HSplitContainer/Layers/VSplitContainer/Separator" method="_on_Delete_pressed"]
 [connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport"]
 [connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport_upper"]
+[connection signal="gui_input" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopLeft" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_on_TopLeft_gui_input"]
+[connection signal="gui_input" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivTop/TopRigth" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_on_TopRigth_gui_input"]
 [connection signal="dragged" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_resize_viewport_down"]
+[connection signal="gui_input" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomLeft" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_on_BottomLeft_gui_input"]
+[connection signal="gui_input" from="BackGround/Main/VSplitContainer/HSplitContainer/Viewports/HorizontalDiv/VerticalDivBottom/BottomRight" to="BackGround/Main/VSplitContainer/HSplitContainer/Viewports" method="_on_BottomRight_gui_input"]
